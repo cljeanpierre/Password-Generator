@@ -52,11 +52,11 @@ function generatePassword() {
 
   var results = [];
   var possibleCharacters = [];
-  var userInput;
+  var options;
   var guaranteedCharacters = [];
 
 
-  userInput = prompt("Type at least one character from the choice of criteria you selected: Uppercase, Lowercase, Special, or Number.")
+  options = prompt("Type at least one character from the choice of criteria you selected: Uppercase, Lowercase, Special, or Number.")
 
 
 
@@ -71,13 +71,15 @@ function generatePassword() {
   // If criteria is true, push data array to possible characters array
 
   if (hasLowercase === true || hasUppercase === true || hasSpecial === true || hasNumber === true) {
-    possibleCharacters.push(userInput);
+    possibleCharacters.push(options);
   }
 
   // For loop to iterate over the password length from the options object, selecting random indices from the array of possible characters and concatenating those characters into the result variable
   for (var i = 0; i < options.length; i++) {
     var possibleCharacter = getRandom(possibleCharacters);
-    result.push(possibleCharacter);
+    results.push(possibleCharacter);
+
+    alert (results[i]);
   }
 
   // pick a random character from criteria and push to guaranteed characters array
@@ -98,7 +100,9 @@ function writePassword() {
 
 }
 
+
 // Add event listener to generate button
+
 generateBtn.addEventListener("click", writePassword);
 
 
